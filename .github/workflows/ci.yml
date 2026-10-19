@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [main]
+    tags: ['*']
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run unit tests
+        run: swift test
+  xcframework:
+    runs-on: macos-14
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build XCFramework
+        run: bash scripts/build_xcframework.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BiometricAuthKit.xcframework
+          path: build/BiometricAuthKit.xcframework.zip
