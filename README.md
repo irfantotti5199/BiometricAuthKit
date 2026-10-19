@@ -1,3 +1,4 @@
+
 # BiometricAuthKit
 
 Small Swift SDK for Face ID / Touch ID authentication and Keychain token storage.
@@ -47,3 +48,4 @@ case .failure(let reason):
 1. Update `SDKInfo.swift`, the podspec and `CHANGELOG.md`.
 2. `git tag 1.0.0 && git push --tags`
 3. `pod lib lint` (optional: `pod trunk push`).
+
